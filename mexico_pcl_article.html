@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexico Dismantles England 8-0 | PCL World Cup Friendly</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,700&display=swap');
+
+  :root {
+    --green: #006847;
+    --red: #CE1126;
+    --white: #F5F5F0;
+    --ink: #0D0D0D;
+    --muted: #5A5A5A;
+    --divider: #D4D0C8;
+    --accent-gold: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .masthead-league {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--accent-gold);
+  }
+  .masthead-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+  .masthead-date {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* HERO SCOREBOARD */
+  .hero {
+    background: var(--ink);
+    padding: 56px 24px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green) 50%, var(--red) 50%);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  .team-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  .team-flag {
+    font-size: 52px;
+    line-height: 1;
+  }
+  .team-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: var(--white);
+  }
+  .team-players {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .score-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 88px;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--white);
+  }
+  .score .winner { color: var(--green); }
+  .score-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--muted);
+    line-height: 1;
+  }
+  .score-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 7vw, 72px);
+    letter-spacing: 2px;
+    color: var(--white);
+    text-align: center;
+    line-height: 1;
+    max-width: 780px;
+    margin: 0 auto 16px;
+  }
+  .hero-headline span {
+    color: var(--green);
+  }
+  .hero-sub {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 1px;
+    max-width: 560px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  /* STAT BAR */
+  .stat-bar {
+    background: var(--green);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .stat-item {
+    padding: 16px 32px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    flex: 1;
+    max-width: 200px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--white);
+    letter-spacing: 1px;
+    display: block;
+  }
+  .stat-desc {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* CONTENT */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 0 24px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: var(--red);
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    font-weight: 700;
+  }
+  .meta-text {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .article-body p {
+    margin-bottom: 22px;
+    font-size: 17px;
+    line-height: 1.75;
+    color: #1a1a1a;
+  }
+
+  .pull-quote {
+    border-left: 4px solid var(--green);
+    padding: 4px 0 4px 24px;
+    margin: 36px 0;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    color: var(--ink) !important;
+    margin: 0 !important;
+  }
+
+  /* RESULTS TIMELINE */
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .results-table {
+    width: 100%;
+    margin: 0 0 40px;
+    border-collapse: collapse;
+  }
+  .results-table tr {
+    border-bottom: 1px solid var(--divider);
+  }
+  .results-table td {
+    padding: 14px 8px;
+    font-size: 14px;
+  }
+  .results-table .match-num {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    width: 40px;
+  }
+  .results-table .match-teams {
+    font-weight: 500;
+  }
+  .results-table .match-score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: right;
+  }
+  .match-score.win { color: var(--green); }
+  .match-score.forfeit { color: var(--accent-gold); }
+  .match-result-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--muted);
+    width: 70px;
+    padding-right: 0;
+  }
+
+  /* DOMINANCE GRAPHIC */
+  .dominance-card {
+    background: var(--ink);
+    padding: 32px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .dominance-card::after {
+    content: 'DOMINANCE';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(255,255,255,0.03);
+    letter-spacing: 4px;
+    white-space: nowrap;
+  }
+  .dominance-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+  }
+  .advantage-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .adv-label {
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 0.5px;
+    width: 130px;
+    flex-shrink: 0;
+  }
+  .adv-bar-wrap {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    height: 6px;
+    border-radius: 0;
+  }
+  .adv-bar {
+    height: 6px;
+    background: var(--green);
+  }
+  .adv-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .article-footer {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--divider);
+    margin-top: 40px;
+  }
+  .footer-tag-line {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .footer-tag-line strong {
+    color: var(--ink);
+  }
+
+  .next-match-box {
+    background: #F0EDE5;
+    padding: 20px 24px;
+    margin: 36px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .next-match-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .next-match-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  .next-match-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 540px) {
+    .score { font-size: 60px; }
+    .stat-item { padding: 12px 14px; }
+    .stat-num { font-size: 22px; }
+    .dominance-card { padding: 20px; }
+    .scoreboard { gap: 16px; }
+    .hero { padding: 36px 16px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <span class="masthead-league">PCL · FC26</span>
+  <span class="masthead-title">The PCL Post</span>
+  <span class="masthead-date">World Cup Friendly · 2026</span>
+</header>
+
+<!-- PHOTO BANNER -->
+<div style="display: flex; gap: 0; width: 100%; max-height: 420px; overflow: hidden;">
+  <div style="flex: 1; overflow: hidden;">
+    <img src="https://github.com/ninjablake66-afk/PCL-NEWS/raw/main/norway_winners.png" alt="Norway PCL World Cup Friendly Winners" style="width: 100%; height: 420px; object-fit: cover; object-position: top; display: block;" />
+  </div>
+  <div style="flex: 1; overflow: hidden;">
+    <img src="https://github.com/ninjablake66-afk/PCL-NEWS/raw/main/motm.png" alt="Miami - Man of the Match & Golden Boot" style="width: 100%; height: 420px; object-fit: cover; object-position: top; display: block;" />
+  </div>
+</div>
+<div style="background: var(--ink); display: flex; justify-content: center; gap: 48px; padding: 10px 24px; border-bottom: 1px solid #222;">
+  <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold);">🇳🇴 Norway · PCL World Cup Friendly Winners</span>
+  <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold);">Miami #7 · Man of the Match · Golden Boot</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">World Cup Friendly Tournament · Quarterfinals</p>
+
+  <div class="scoreboard">
+    <div class="team-block">
+      <span class="team-flag">🇲🇽</span>
+      <span class="team-name">Mexico</span>
+      <span class="team-players">3 Human Players</span>
+    </div>
+    <div class="score-block">
+      <div class="score">
+        <span class="winner">8</span><span class="score-sep"> – </span><span>0</span>
+      </div>
+      <span class="score-label">Final · Quarterfinal</span>
+    </div>
+    <div class="team-block">
+      <span class="team-flag">󠁧󠁢󠁥󠁮󠁧🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+      <span class="team-name">England</span>
+      <span class="team-players">7 Human Players + 4 AI</span>
+    </div>
+  </div>
+
+  <h1 class="hero-headline">THREE MEN.<br><span>EIGHT GOALS.</span><br>NO MERCY.</h1>
+  <p class="hero-sub">Mexico's PCL squad makes a statement with a demolition job for the ages in the World Cup Friendly tournament.</p>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-num">8–0</span>
+    <span class="stat-desc">Final Score</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">3 v 7</span>
+    <span class="stat-desc">Human Players</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">2–1</span>
+    <span class="stat-desc">Tournament Record</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">11</span>
+    <span class="stat-desc">Goals Scored</span>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="container">
+  <div class="article-meta">
+    <span class="tag">Match Report</span>
+    <span class="meta-text">PCL World Cup Friendly · Group Stage</span>
+    <span class="meta-text">· FC26 Clubs Mode</span>
+  </div>
+
+  <div class="article-body">
+    <p>
+      There are dominant performances, and then there is what Mexico's PCL squad did to England. Running with just three human-controlled players against a seven-man England side, Mexico didn't just win — they dismantled, they dominated, and they sent a message to every team remaining in the World Cup Friendly tournament: nobody is coming close to stopping this squad.
+    </p>
+
+    <p>
+      The match was barely a contest from the opening whistle. Mexico's trio of real players moved the ball with a purpose that England's seven-person lineup simply couldn't match, carving through defensive lines and converting chance after chance in what became an 8-0 final scoreline. For context — England had more than double the human presence on the pitch and still couldn't manage a single reply.
+    </p>
+
+    <div class="pull-quote">
+      <p>"Three players. Eight goals. Against seven opponents. The numbers don't lie — Mexico is operating on a different level entirely."</p>
+    </div>
+
+    <p>
+      This wasn't a fluke. Mexico's tournament run has been flawless from the jump. They entered the competition with a forfeit win in their opening match — a walkover that put them into Game 2 already in a position of strength. Rather than sleepwalk through it, they showed up against England and put on a clinic. Every goal a statement. Every attack a reminder of the quality gap between Mexico's organized, composed unit and whatever England attempted to field.
+    </p>
+
+    <p>
+      The numbers are staggering when you strip them back. Three Mexico players produced eight goals against a side with more than twice as many humans. England's four AI-controlled players were non-factors, their human teammates unable to compensate for the sheer quality and organization Mexico brought. It was clinical, it was cold, and it was exactly the kind of performance that puts the rest of the bracket on notice.
+    </p>
+
+    <!-- RESULTS TABLE -->
+    <div class="section-label">Tournament Results · Mexico</div>
+    <table class="results-table">
+      <tr>
+        <td class="match-num">R2</td>
+        <td class="match-teams">Mexico vs. Brazil</td>
+        <td class="match-score forfeit"><span style="display:inline-flex;align-items:center;gap:4px;"><span>3</span><span>–</span><span>0</span></span></td>
+        <td class="match-result-label">Forfeit Win</td>
+      </tr>
+      <tr>
+        <td class="match-num">QF</td>
+        <td class="match-teams">Mexico vs. England</td>
+        <td class="match-score win"><span style="display:inline-flex;align-items:center;gap:4px;"><span>8</span><span>–</span><span>0</span></span></td>
+        <td class="match-result-label">Dominant Win</td>
+      </tr>
+      <tr>
+        <td class="match-num">SF</td>
+        <td class="match-teams">Mexico vs. Turkey</td>
+        <td class="match-score" style="color: var(--muted); font-size:13px; letter-spacing:1px;">TBD</td>
+        <td class="match-result-label">Up Next</td>
+      </tr>
+    </table>
+
+    <!-- DOMINANCE GRAPHIC -->
+    <div class="dominance-card">
+      <h3>The Numbers Behind The Demolition</h3>
+      <div class="advantage-row">
+        <span class="adv-label">Human players (MEX)</span>
+        <div class="adv-bar-wrap"><div class="adv-bar" style="width: 30%"></div></div>
+        <span class="adv-val">3</span>
+      </div>
+      <div class="advantage-row">
+        <span class="adv-label">Human players (ENG)</span>
+        <div class="adv-bar-wrap"><div class="adv-bar" style="width:70%; background:#CE1126;"></div></div>
+        <span class="adv-val">7</span>
+      </div>
+      <div class="advantage-row">
+        <span class="adv-label">Goals scored (MEX)</span>
+        <div class="adv-bar-wrap"><div class="adv-bar" style="width: 100%"></div></div>
+        <span class="adv-val">8</span>
+      </div>
+      <div class="advantage-row">
+        <span class="adv-label">Goals scored (ENG)</span>
+        <div class="adv-bar-wrap"><div class="adv-bar" style="width:0%; background:#CE1126;"></div></div>
+        <span class="adv-val">0</span>
+      </div>
+    </div>
+
+    <p>
+      What makes this run particularly remarkable is the sheer efficiency of Mexico's squad. With AI filling eight of their eleven slots, the human trio was tasked with shouldering the creative and defensive responsibility for the entire team. They didn't just manage it — they thrived. Every chance created, every goal scored came from real decision-making, real movement, real quality. England's seven couldn't replicate it with nearly three times the human firepower.
+    </p>
+
+    <p>
+      With a perfect tournament record heading into the later rounds, Mexico are the team to beat in this bracket. The question is no longer whether they can win — it's whether any side left in this competition has the quality and the numbers to slow them down. Based on what we've seen, the answer looks bleak for everyone else.
+    </p>
+
+    <!-- NEXT MATCH BOX - now result -->
+    <div class="next-match-box" style="background: #1a0000; border-left: 4px solid var(--red);">
+      <div>
+        <div class="next-match-label" style="color: #ff6b6b;">Semifinal · Eliminated</div>
+        <div class="next-match-text" style="color: var(--white);">🇲🇽 Mexico 0 – 3 Turkey 🇹🇷</div>
+      </div>
+      <div class="next-match-note" style="color: #ff6b6b;">Knocked Out · Semifinals · 2 vs 11</div>
+    </div>
+
+    <p>
+      The run is over. Mexico, the team that dismantled England 8-0 with just three players and looked completely untouchable through the quarterfinals, have been knocked out of the World Cup Friendly tournament in the semifinals — eliminated 3-0 by a full-strength Turkey side under the most brutal of circumstances.
+    </p>
+
+    <!-- SEMIFINAL SCOREBOARD -->
+    <div style="background: var(--ink); padding: 28px; margin: 32px 0; text-align: center;">
+      <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #ff6b6b; margin-bottom: 16px; font-weight: 600;">Semifinal · Final Result</p>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 24px; margin-bottom: 12px;">
+        <div style="text-align:center;">
+          <div style="font-size: 36px; margin-bottom: 6px;">🇲🇽</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 3px; color: #aaa;">Mexico</div>
+          <div style="font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 1px;">2 HUMANS (from 3)</div>
+        </div>
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--white); letter-spacing: -2px; line-height:1; display:flex; align-items:center; gap:8px;">
+          <span style="color:#666;">0</span><span style="color:#555;">–</span><span style="color:#CE1126;">3</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size: 36px; margin-bottom: 6px;">🇹🇷</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 3px; color: #aaa;">Turkey</div>
+          <div style="font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 1px;">FULL 11</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color: var(--red);">
+      <p>The moment one player dropped, the game changed. Two against eleven is not football — it's survival. Mexico survived as long as they could.</p>
+    </div>
+
+    <p>
+      The killing blow came not from Turkey's quality alone, but from circumstances Mexico could not control. With the score still level at 0-0 and the game very much in the balance, one of Mexico's three players dropped out — leaving just two humans to battle a full eleven-man Turkey lineup backed by a complete squad. What had been a competitive semifinal became an impossible ask in an instant.
+    </p>
+
+    <p>
+      Turkey, to their credit, were no England. They showed up with a full complement of players, organized and ready, and when the numbers tipped catastrophically in their favor they didn't waste the opportunity. Three goals without reply. Mexico, operating at a 2v11 disadvantage for the majority of the match, couldn't claw back into it no matter how hard they pushed. The final score — 3-0 — flatters nobody. It tells the story of a squad that never got a fair fight once the numbers deserted them.
+    </p>
+
+    <p>
+      It's a gut-punch ending to what was an extraordinary tournament run. Mexico entered, demolished Brazil's forfeit slot for a 3-0 walkover, then went out and humiliated England 8-0 with three players against seven. They did everything asked of them and more — only for a dropout in the semifinal to hand Turkey an advantage no team should ever be given. The result stands. The tournament run doesn't deserve to be forgotten.
+    </p>
+
+    <!-- INTERVIEW -->
+    <div class="section-label" style="margin-top: 32px;">Manager Interview · TA10 · Mexico</div>
+
+    <p>
+      In the aftermath of the tournament, PCL News and Chief League Radio correspondent <strong>godofrock</strong> sat down with Mexico manager <strong>TA10</strong> to get his take on the run, the heartbreak, and what's next for the squad.
+    </p>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid var(--green);">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On his role in the England win</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"For sure it was an amazing night from all 3 members. My main role was honestly just supporting the defense where I could and creating for our great striker. All I had to do was get the ball to the right spot and he was knocking it in."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— TA10, Mexico Manager</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid var(--green);">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On whether a full squad could have beaten Turkey</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"For sure the numbers we put up in tournament and even in warm ups before against big squads there's no question it would've been different. Was that a good Turkey squad, yes, but I think we could've pulled out that win 100%."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— TA10, Mexico Manager</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid var(--green);">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On the future of Mexico</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"I expect us to make a deep run. As the new manager I have high faith that I can find high caliber players to fill roles. We had some key members already who couldn't make this tournament that I expect to impact the future of this team. Not too much to put into it — we just got guys who will do whatever it takes to win."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— TA10, Mexico Manager</p>
+    </div>
+
+    <div style="background: var(--green); padding: 20px 24px; margin: 24px 0; text-align: center;">
+      <p style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); margin: 0;">Viva la Mexico 🇲🇽</p>
+      <p style="font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 6px; margin-bottom: 0; letter-spacing: 1px;">— TA10, Mexico Manager</p>
+    </div>
+
+
+    <table class="results-table">
+      <tr>
+        <td class="match-num">R2</td>
+        <td class="match-teams">Mexico vs. Brazil</td>
+        <td class="match-score forfeit"><span style="display:inline-flex;align-items:center;gap:4px;"><span>3</span><span>–</span><span>0</span></span></td>
+        <td class="match-result-label">Forfeit Win</td>
+      </tr>
+      <tr>
+        <td class="match-num">QF</td>
+        <td class="match-teams">Mexico vs. England</td>
+        <td class="match-score win"><span style="display:inline-flex;align-items:center;gap:4px;"><span>8</span><span>–</span><span>0</span></span></td>
+        <td class="match-result-label">Dominant Win</td>
+      </tr>
+      <tr>
+        <td class="match-num">SF</td>
+        <td class="match-teams">Mexico vs. Turkey</td>
+        <td class="match-score" style="color: var(--red); font-family: 'Bebas Neue', sans-serif; font-size: 18px; text-align:right;"><span style="display:inline-flex; align-items:center; gap:4px;"><span>0</span><span>–</span><span>3</span></span></td>
+        <td class="match-result-label" style="color: var(--red);">Eliminated</td>
+      </tr>
+    </table>
+
+    <p>
+      Three matches. Two commanding wins. One cruel exit. Mexico scored eleven goals and conceded three — all of them in a semifinal they played shorthanded. In any other sport, in any other context, that is a tournament to be proud of. The PCL World Cup Friendly is over for Mexico, but the 8-0 against England will not be forgotten anytime soon.
+    </p>
+
+    <!-- FINAL TEASER -->
+    <div style="background: var(--ink); padding: 24px 28px; margin: 36px 0; border-top: 3px solid var(--accent-gold);">
+      <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 14px; font-weight: 600;">World Cup Friendly · Final · Full Time</p>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 32px;">
+        <div style="text-align:center;">
+          <div style="font-size: 40px; margin-bottom: 6px;">🇹🇷</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 3px; color: var(--white);">Turkey</div>
+          <div style="font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 1px;">FULL 11</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--white); line-height:1; display:flex; align-items:center; gap:8px;">
+            <span style="color:#aaa;">0</span><span style="color:#555;">–</span><span style="color: var(--accent-gold);">7</span>
+          </div>
+          <div style="font-size: 10px; color: #666; margin-top: 6px; letter-spacing: 2px; text-transform: uppercase;">Full Time</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size: 40px; margin-bottom: 6px;">🇳🇴</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 3px; color: var(--white);">Norway</div>
+          <div style="font-size: 10px; color: #666; margin-top: 4px; letter-spacing: 1px;">9 MEN (1 lagged out)</div>
+        </div>
+      </div>
+      <p style="text-align: center; font-size: 12px; color: #666; margin-top: 16px; font-style: italic;">Norway are champions. 9 men, one lagout, and seven goals. Turkey's full squad had no answer. An all-time tournament final.</p>
+    </div>
+
+    <!-- NORWAY VS TURKEY MATCH REPORT -->
+    <div class="section-label" style="margin-top: 40px;">Match Report · The Final · Turkey vs Norway</div>
+
+    <p>
+      Nobody saw this coming. Going into the final, Turkey were the favourites — a full eleven-man squad, tournament momentum off the back of eliminating Mexico, and an opponent in Norway who had barely scraped through the semifinals with seven men before reinforcing to ten. By the time the final whistle blew, Turkey had been taken apart 7-0. Norway, playing with nine men after a lagout mid-game, had just put on one of the most dominant final performances this tournament has ever seen.
+    </p>
+
+    <div class="pull-quote" style="border-left-color: var(--accent-gold);">
+      <p>Turkey came looking to attack. Norway let them. Every rushed buildup became a fast break for Norway — and Norway finished every single one.</p>
+    </div>
+
+    <p>
+      The first half told a story of surprise and composure. Norway came out structured, compact, and dangerous on the break — holding their shape and absorbing Turkey's pressure while consistently threatening on the transition. By halftime it was already 3-0, a scoreline that flattered Turkey if anything. The game should have been over at the break.
+    </p>
+
+    <p>
+      Then Norway lost a player to a lagout. Down to nine men, against a full Turkey side, trailing 3-0 — Turkey had every reason to believe a comeback was on. Instead, they panicked. The Turkish buildup became increasingly rushed and disorganized, their players pushing numbers forward in desperate search of goals, leaving massive gaps in behind. Norway, ice-cool and lethal on the counter, punished them every single time.
+    </p>
+
+    <p>
+      The second half was a rout. Turkey's urgency became their undoing — every overhit pass, every half-cleared defensive line turned into a Norway transition opportunity, and Norway converted them with ruthless efficiency. Goal after goal. The score climbed to four, five, six. Then, deep into stoppage time at 90+3, Norway scored a seventh directly from a freekick taken in their own half. The ball found the net from distance. Turkey stood stunned. The tournament was over.
+    </p>
+
+    <div style="background: #F0EDE5; padding: 20px 24px; margin: 32px 0; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <div style="text-align:center; flex:1; min-width: 100px;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--ink);">7</div>
+        <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">Goals · Norway</div>
+      </div>
+      <div style="text-align:center; flex:1; min-width: 100px;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--ink);">0</div>
+        <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">Goals · Turkey</div>
+      </div>
+      <div style="text-align:center; flex:1; min-width: 100px;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--ink);">9v11</div>
+        <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">Players on Pitch</div>
+      </div>
+      <div style="text-align:center; flex:1; min-width: 100px;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--ink);">90+3'</div>
+        <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted);">Last Goal</div>
+      </div>
+    </div>
+
+    <p>
+      Norway are your PCL World Cup Friendly champions. They scraped through the semis shorthanded, reinforced for the final, lost another man mid-match, and still won by seven. Turkey's full squad never landed a single goal. In a tournament full of remarkable moments — Mexico's 8-0 destruction of England, the semifinal dropout that ended an unlikely run — Norway's final performance stands alone. Seven goals. Nine men. Champions.
+    </p>
+
+    <!-- TURKEY CAPTAIN INTERVIEW -->
+    <div class="section-label" style="margin-top: 40px;">Post-Match Interview · Bucky · Turkey Captain</div>
+
+    <p>
+      In the wake of the defeat, PCL News and Chief League Radio's <strong>godofrock</strong> caught up with Turkish captain <strong>Bucky</strong> for his reaction to the 7-0 final loss and what it means for Turkey going forward.
+    </p>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #CE1126;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On reaching the final in their first game together</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"It was our first day playing together as a team with more than 3-4 people so a lot of chemistry still needed to be built, but the fact that we made it to the finals on our first real time playing together is definitely spectacular. The Turkey national team has a lot of potential and we've showed that from the start. Tell Norway not to get too comfortable, because once we make some changes and get our chemistry up we're gonna be something fierce."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Bucky, Turkey Captain</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #CE1126;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On fixing the buildup issues before the World Cup</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"Oh yeah we will most definitely fix all our short comings before the world cup. We still have time and it was only our first day. We're very pumped and excited to continue playing as a team and showing the world what we're capable of."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Bucky, Turkey Captain</p>
+    </div>
+
+    <div style="background: var(--ink); padding: 20px 24px; margin: 24px 0; text-align: center;">
+      <p style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: #CE1126; margin: 0;">Turkey is coming.</p>
+      <p style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 6px; margin-bottom: 0; letter-spacing: 1px;">— Bucky, Turkey Captain</p>
+    </div>
+
+    <!-- MEMOOCHOA INTERVIEW -->
+    <div class="section-label" style="margin-top: 40px;">Player Interview · Memoochoa · Turkey</div>
+
+    <p>
+      godofrock also sat down with Turkish player <strong>Memoochoa</strong> for his take on the defeat.
+    </p>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #CE1126;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On what went wrong against Norway</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"The main problem was that we tried. It's not the end of the world — we might have lost badly but we will have new lineups. And for all the people that tried and are out there, remember you can be the next one that can win. That's all, thank you."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Memoochoa, Turkey</p>
+    </div>
+
+    <!-- MIAMI INTERVIEW -->
+    <div class="section-label" style="margin-top: 40px;">Player Interview · Miami #7 · Norway · Man of the Match & Golden Boot</div>
+
+    <p>
+      The tournament's standout performer was Norway striker <strong>Miami</strong>, who walked away with both the Man of the Match award and the PCL International Friendlies Golden Boot. godofrock caught up with him after the final.
+    </p>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #003087;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On what helped him contribute goals throughout the tournament</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"I believe my whole team contributed to help me getting goals by playing excellent defense and pushing the ball forward for counter attacks. We knew that if I got hot we'd be hard to stop — so the focus was to get me going after I struggled last 2 tournaments."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Miami, Norway Striker</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #003087;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On the impact of losing a player mid-final</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"Yeah I believe it caused us to hold off from getting a bigger blowout because the left wing was a key player in that game by dribbling past defenders and creating chances to help the team score."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Miami, Norway Striker</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #003087;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On Turkey's weakness and how Norway exploited it</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"I feel like Turkey played good by playing that high line and the weakness with Turkey is that they couldn't keep possession and we exploited by hitting them on counter attacks."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Miami, Norway Striker</p>
+    </div>
+
+    <div style="background: #F0EDE5; padding: 24px; margin: 24px 0; border-left: 3px solid #003087;">
+      <p style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; font-weight: 600;">On Norway's chances at the World Cup</p>
+      <p style="font-size: 15px; line-height: 1.7; margin-bottom: 0; color: var(--ink);">"I believe my team will have a good chance by winning the World Cup because we play a lot of games together and we have gained a lot of chemistry by playing and that will help us going into the World Cup."</p>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 10px; margin-bottom: 0;">— Miami, Norway Striker</p>
+    </div>
+
+    <div style="background: #003087; padding: 20px 24px; margin: 24px 0; text-align: center;">
+      <p style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 3px; color: var(--white); margin: 0;">Yes. We will be celebrating this win. 🇳🇴</p>
+      <p style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 6px; margin-bottom: 0; letter-spacing: 1px;">— Miami, Norway · Man of the Match · Golden Boot</p>
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <p class="footer-tag-line"><strong>THE PCL POST</strong> · FC26 Clubs Coverage · World Cup Friendly 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
